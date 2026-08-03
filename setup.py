@@ -20,8 +20,11 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'go_to_goal_action_server = ms_actions.go_to_goal_action_server:main',
+            'go_to_goal_server = ms_actions.go_to_goal_server:main',
             'multi_goal_client = ms_actions.multi_goal_client:main',
+            'xarm_client_test = ms_actions.xarm_client_test:main',
+            'inspect_client = ms_actions.inspect_client:main',
+            'inspect_server = ms_actions.inspect_server:main',
         ],
     },
 )

@@ -24,6 +24,8 @@ def main():
     rclpy.init()
     node = GoToGoalClient()
     node.send_goal(2.0, 1.0)
+    node.send_goal(1.0, 1.0)
+    node.send_goal(-2.0, -1.0)
     rclpy.shutdown()
 
 if __name__ == '__main__':
