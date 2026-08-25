@@ -77,7 +77,7 @@ class GoToGoalServer(Node):
             y = tf.transform.translation.y
             q = tf.transform.rotation
             yaw = math.atan2(2 * (q.w * q.z + q.x * q.y), 1 - 2 * (q.y**2 + q.z**2))
-            self.get_logger().info(f'Pose ({x:.2f}, {y:.2f})')
+            # self.get_logger().info(f'Pose ({x:.2f}, {y:.2f})')
             return x, y, yaw
         except TransformException:
             return None
@@ -95,7 +95,7 @@ class GoToGoalServer(Node):
         return math.atan2(math.sin(angle), math.cos(angle))
 
     def go_to_goal_cb(self, request, response):
-        self.get_logger().info(f'Received goal ({request.x:.2f}, {request.y:.2f})')
+        self.get_logger().info(f'Received goal ({request.x:.2f}, {request.y:.2f}, {request.insp_yaw:.2f}, {request.insp})')
         rate = self.create_rate(10)
 
         # States:
@@ -127,8 +127,9 @@ class GoToGoalServer(Node):
 
                 if distance < self.lin_tol:
                     self.stop_robot()
-                    self.get_logger().info('Stage 0 Complete: Position reached. Moving to Stage 1 (Turn Setup).')
-                    state = 1
+                    self.get_logger().info('Stage 0 Complete: Position reached.')
+                    # continue if insp = True, done if False
+                    state = 1 if request.insp else 3
                     rate.sleep()
                     continue
 

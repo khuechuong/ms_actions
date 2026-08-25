@@ -96,10 +96,10 @@ def main():
     # node.send_goal([0.28, 0.0, 0.4, 2.580, -1.57, 0.562]) # origin
     # node.send_goal([0.28, 0.0, 0.4, 2.580, -1.57, 0.562]) # origin
 
+    node.send_goal([0.0, -0.44, 0.0, 3.14, -1.57, -1.57])  # right low
     # node.send_goal([0.0, -0.44, 0.1, 3.14, -1.57, -1.57])  # right low
-    # node.send_goal([0.0, -0.44, 0.1, 3.14, -1.57, -1.57])  # right low
-    node.send_goal([0.0, -0.44, 0.4, 3.14, -1.57, -1.57])  # right mid
-    node.send_goal([0.0, -0.44, 0.4, 3.14, -1.57, -1.57])  # right mid
+    # node.send_goal([0.0, -0.44, 0.4, 3.14, -1.57, -1.57])  # right mid
+
     # node.send_goal([0.0, -0.44, 0.7, 3.14, -1.57, -1.57])  # right high
     # node.send_goal([0.0, -0.44, 0.7, 3.14, -1.57, -1.57])  # right high
     # node.send_goal([0.0,  0.44, 0.7, 0.0,  -1.57, -1.57])  # left high
